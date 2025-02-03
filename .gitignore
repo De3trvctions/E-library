@@ -19,7 +19,17 @@
 
 # Go workspace file
 go.work
-go.work.sum
+go.sum
 
-# env file
-.env
+api-login
+
+
+routers/commentsRouter.go
+swagger/
+tmp/
+logs/
+
+#nacos
+cache/
+log/
+*.log

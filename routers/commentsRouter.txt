@@ -1,0 +1,55 @@
+package routers
+
+import (
+	beego "github.com/beego/beego/v2/server/web"
+	"github.com/beego/beego/v2/server/web/context/param"
+)
+
+func init() {
+
+    beego.GlobalControllerRouter["e-library/controllers/booking:BookController"] = append(beego.GlobalControllerRouter["e-library/controllers/booking:BookController"],
+        beego.ControllerComments{
+            Method: "All",
+            Router: `/All`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["e-library/controllers/booking:BookController"] = append(beego.GlobalControllerRouter["e-library/controllers/booking:BookController"],
+        beego.ControllerComments{
+            Method: "Book",
+            Router: `/Book`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["e-library/controllers/booking:BookController"] = append(beego.GlobalControllerRouter["e-library/controllers/booking:BookController"],
+        beego.ControllerComments{
+            Method: "Borrow",
+            Router: `/Borrow`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["e-library/controllers/booking:BookController"] = append(beego.GlobalControllerRouter["e-library/controllers/booking:BookController"],
+        beego.ControllerComments{
+            Method: "Extend",
+            Router: `/Extend`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["e-library/controllers/booking:BookController"] = append(beego.GlobalControllerRouter["e-library/controllers/booking:BookController"],
+        beego.ControllerComments{
+            Method: "Return",
+            Router: `/Return`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+}
