@@ -2,8 +2,10 @@ package initilize
 
 import (
 	db "e-library/db"
+	"strings"
 
 	"github.com/beego/beego/v2/core/logs"
+	"github.com/beego/i18n"
 )
 
 func InitLogs() {
@@ -36,19 +38,19 @@ func InitDB() {
 	db.InitDB(syncDB)
 }
 
-// func InitLanguage() {
-// 	langs := nacos.Lang
-// 	langTypes := strings.Split(langs, "|")
-// 	for _, lang := range langTypes {
-// 		if lang != "" {
-// 			logs.Info("[InitLanguage] Initialize language: ", lang)
-// 			if err := i18n.SetMessage(lang, "conf/locale_"+lang+".ini"); err != nil {
-// 				logs.Error("[InitLanguage] Fail to set message file:", err)
-// 			}
-// 		}
-// 	}
-// 	logs.Info("[InitLanguage] Init Language Success")
-// }
+func InitLanguage() {
+	langs := "en-US"
+	langTypes := strings.Split(langs, "|")
+	for _, lang := range langTypes {
+		if lang != "" {
+			logs.Info("[InitLanguage] Initialize language: ", lang)
+			if err := i18n.SetMessage(lang, "conf/locale_"+lang+".ini"); err != nil {
+				logs.Error("[InitLanguage] Fail to set message file:", err)
+			}
+		}
+	}
+	logs.Info("[InitLanguage] Init Language Success")
+}
 
 // func InitNacosConfig() {
 // 	// Create a client config

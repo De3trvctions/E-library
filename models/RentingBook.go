@@ -1,6 +1,7 @@
 package models
 
 import (
+	"e-library/consts"
 	"e-library/utility"
 	"time"
 
@@ -48,6 +49,9 @@ func (book *RentingBook) GetAll() (bookList []BookDetails, errcode int64, err er
 	_, err = db.Raw(sql).QueryRows(&bookList)
 	if err != nil {
 		logs.Error("[RentingBook][GetAll] Query error:", sql, err)
+		errcode = consts.DB_GET_FAILED
+		return
+
 	}
 
 	return
@@ -69,6 +73,7 @@ func (book *RentingBook) GetBook(title string) (bookList RentingBook, err error)
 	err = db.Raw(sql).SetArgs(args).QueryRow(&bookList)
 	if err != nil {
 		logs.Error("[RentingBook][GetBook] Query error:", sql, err)
+		return
 	}
 
 	return
