@@ -15,7 +15,6 @@ services:
     command: --default-authentication-plugin=mysql_native_password # Set authentication plugin
     volumes:
       - db_data:/var/lib/mysql
-      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - app-network
 

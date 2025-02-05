@@ -94,8 +94,11 @@ func insertInitialBooks() {
 		logs.Info("[insertInitialBooks] No books found, inserting default records")
 
 		books := []models.RentingBook{
-			{Title: "The Go Programming Language", AvailableCopies: 5, MaxCopies: 5},
-			{Title: "Clean Code", AvailableCopies: 3, MaxCopies: 3},
+			{Title: "Hello", AvailableCopies: 5, MaxCopies: 5, CommStruct: models.CommStruct{CreateTime: uint64(time.Now().Unix())}},
+			{Title: "Clean Code", AvailableCopies: 3, MaxCopies: 3, CommStruct: models.CommStruct{CreateTime: uint64(time.Now().Unix())}},
+			{Title: "Book 1", AvailableCopies: 10, MaxCopies: 10, CommStruct: models.CommStruct{CreateTime: uint64(time.Now().Unix())}},
+			{Title: "Book 2", AvailableCopies: 15, MaxCopies: 15, CommStruct: models.CommStruct{CreateTime: uint64(time.Now().Unix())}},
+			{Title: "Book 3", AvailableCopies: 20, MaxCopies: 20, CommStruct: models.CommStruct{CreateTime: uint64(time.Now().Unix())}},
 		}
 
 		for _, book := range books {
